@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<title>Fontaland</title>
+<link rel="stylesheet" href="static/hf.css" />
+</head>
+<body>
+<div>
+<center>
+<header>
+<a href="/"><h1>FontaLand</h1></a>
+</header>
+</center>
+</div>
+<div class="row" style="height: {{ height }}px;">
+<div class="column">
+<table><tr><th><b><b><h3>Quicklinks</h3></b></b></th></tr>
+<tr><td><a href="https://fontaland.pythonanywhere.com/HowToUseSite">First time here? Click here for a tutorial.</a></td></tr>
+<tr><td><a href="https://www.calligraphr.com/">Make your own fonts!</a></td></tr>
+<tr><td><a href="https://cloudconvert.com/otf-to-ttf">.otf to .ttf</a></td></tr>
+<tr><td><a href="https://cloudconvert.com/ttf-to-otf">.ttf to .otf</a></td></tr>
+<tr><td><a href="https://cloudconvert.com/ttf-to-woff">.ttf to .woff</a></td></tr>
+<tr><td><a href="https://cloudconvert.com/ttf-to-woff2">.ttf to .woff2</a></td></tr>
+<tr><td><a href="https://cloudconvert.com/woff-to-woff2">.woff to .woff2</a></td></tr>
+<tr><td><a href="https://cloudconvert.com/woff2-to-ttf">.woff2 to .ttf</a></td></tr>
+<tr><td><a href="https://cloudconvert.com/eot-to-ttf">.eot to .ttf</a></td></tr>
+<tr><td><a href="https://cloudconvert.com/ttf-to-eot">.ttf to .eot</a></td></tr>
+</table>
+</div>
+<div class="column">
+{% block body %}
+{% endblock %}
+</div>
+<div class="column">
+<center>
+<form action="/upload" style="border: 3px dotted grey;" method="POST" enctype="multipart/form-data">
+  <label for="myfile">Upload a Font!</label>
+  <input type="file" id="myfile" name="font" accept=".ttf, .otf"><br><br>
+  <input type="submit" value="Upload">
+</form>
+<br>
+<button onclick="window.location.href='/{{loginout}}'" style="height: 50px"><b>{{loginout}}</b></button>
+<br>
+<table><tr><th>Dashboard</th><th></th></tr>
+<tr><td>Hello,{{username}}</td><td></td></tr>
+<tr><td>Credits:</td><td>{{credits}}</td></tr>
+<tr><td>Fonts downladed:</td><td>{{down}}</td></tr>
+<tr><td>Fonts uploaded:</td><td>{{up}}</td></tr></table>
+</center>
+</div>
+</div>
+<br>
+<center><h3><footer><a href="https://scratch.mit.edu/users/a_typical_person/"> Follow me</a> on <a href="https://scratch.mit.edu">Scratch!</a></footer></h3></center>
+</body>
+</html>

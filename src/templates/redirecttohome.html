@@ -1,0 +1,13 @@
+{% extends 'homepage.html' %}
+{% block text %}
+<div class="alert">
+<strong>Info!</strong>
+<center><p>{{ text }}</p></center>
+<script>
+    setTimeout(function(){
+        window.location.href = '/';
+    }, 2000);
+</script>
+</div>
+
+{% endblock %}

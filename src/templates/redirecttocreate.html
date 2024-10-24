@@ -1,0 +1,12 @@
+{% extends 'create.html' %}
+{% block text %}
+<div class="alert">
+<strong>Info!</strong>
+<center><p>{{ text }}</p></center>
+<script>
+    setTimeout(function(){
+        window.location.href = '/create';
+    }, 2000);
+</script>
+</div>
+{% endblock %}

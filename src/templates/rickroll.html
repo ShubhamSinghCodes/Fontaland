@@ -1,0 +1,67 @@
+<html><head><title>Fontaland Easter Egg</title></head><body onbeforeunload="return window.open('https://fontaland.pythonanywhere.com/misc/{{page}}');"><style>
+    .container{
+        width: -webkit-fill-available;
+        height: -webkit-fill-available;
+        position: relative;
+        margin: 20px;
+    }
+    .box{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .stack-top{
+        z-index: 9;
+    }
+</style>
+<div class="container"><div class="box" style="height: -webkit-fill-available; width: -webkit-fill-available;"><iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?&amp;enablejsapi=1&amp;autoplay=1&amp;mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" height="507" style="height: -webkit-fill-available;width: -webkit-fill-available;"></iframe></div>
+<div class="box stack-top" style="height: -webkit-fill-available; width: -webkit-fill-available;" onclick="enterFullscreen()"></div>
+</div>
+<p>You've been rick rolled. No Controls.</p>
+<script>
+function enterFullscreen() {
+    const elem = document.documentElement; // Make the entire document fullscreen
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { // Firefox
+        elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { // IE/Edge
+        elem.msRequestFullscreen();
+    }
+}
+
+// Event listener for detecting exit from fullscreen
+document.addEventListener('fullscreenchange', function () {
+    if (!document.fullscreenElement) { // If the user exits fullscreen
+        enterFullscreen(); // Re-enter fullscreen mode
+    }
+});
+
+// Prevent closing the tab with Ctrl+W or Cmd+W
+document.addEventListener("keydown", function (event) {
+    // Detect Ctrl+W (on Windows/Linux)
+    if (event.ctrlKey && event.key === 'w') {
+        event.preventDefault(); // Prevent the default close-tab behavior
+        alert("Closing the tab is disabled!");
+    }
+
+    // Detect Cmd+W (on MacOS)
+    if (event.metaKey && event.key === 'w') {
+        event.preventDefault(); // Prevent the default close-tab behavior on Mac
+        alert("Closing the tab is disabled!");
+    }
+});
+
+// Open a new tab of the same webpage when the user tries to close it
+window.addEventListener("beforeunload", function (event) {
+    window.open(window.location.href, '_blank'); // Opens the same page in a new tab
+    event.preventDefault(); // Some browsers require this for the dialog to show
+    event.returnValue = ""; // This triggers the browser's default confirmation dialog
+});
+
+// Enter fullscreen mode by default when the page loads
+enterFullscreen();
+</script>
+</body></html>

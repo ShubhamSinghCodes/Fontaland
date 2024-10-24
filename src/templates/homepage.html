@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+<form method='POST' action="/search">
+<p style="text-align:right;"><input type="text" placeholder="Search.." name="search"><button type="submit">Search</button></p>
+</form>
+{% block text %}
+{% endblock %}
+<center>
+<h2>Fonts</h2>
+<table>
+<tr>
+{% for row_title in the_row_titles %}
+<th>{{row_title}}</th>
+{% endfor %}
+</tr>
+{% for font in fonts %}
+<tr>
+<td style="font-family:{{font[4]}}"><img src="/preview/{{font[0]}}.png" alt="{{font[0]}}" style="max-width: 100%;max-height: 100%;"></td>
+<td><button onclick="window.location.href='{{font[1]}}'">Download({{font[2]}} downloads till now)|cost:{{font[3]}}</button></td>
+</tr>
+{% endfor %}
+</table>
+<br>
+</center>
+{% endblock %}

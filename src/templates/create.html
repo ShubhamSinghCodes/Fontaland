@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+<h2>Create an account</h2>
+<form method='POST' action='/docreate'>
+<table>
+<tr><td>Username:</td><td><input name='usname' type='TEXT' width='60'></td></tr>
+<tr><td>Password:</td><td><input name='psswd' type="password"></td></tr>
+<tr><td>Confirm password:</td><td><input name='conpsswd' type="password"></td></tr>
+</table>
+<p><input value='Create' type='SUBMIT'></p>
+</form>
+{% block text %}
+{% endblock %}
+{% endblock %}

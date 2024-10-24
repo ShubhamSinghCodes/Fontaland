@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block body %}
+<h2>Login</h2>
+<form method='POST' action='/dologin'>
+<table>
+<tr><td>Username</td><td><input name='usname' type='TEXT' width='60'></td></tr>
+<tr><td>Password:</td><td><input name='psswd' type="password"></td></tr>
+</table>
+<p><input value='Login' type='SUBMIT'></p>
+</form>
+<br>
+<center><p>--OR--</p>
+<br>
+<button onclick="window.location.href='/create'" style="height: 50px"><b>Create an account</b></button>
+</center>
+{% block text %}
+{% endblock %}
+{% endblock %}
